@@ -1,0 +1,9 @@
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
+set tabstop=4
+set shiftwidth=4
+set mouse=a
+set clipboard=unnamedplus
+set expandtab
+set number
+syntax on
