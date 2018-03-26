@@ -6,4 +6,5 @@ set mouse=a
 set clipboard=unnamedplus
 set expandtab
 set number
+set noswapfile
 syntax on
