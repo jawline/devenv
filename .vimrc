@@ -7,6 +7,7 @@ set clipboard=unnamedplus
 set expandtab
 set number
 set noswapfile
+set spell
 syntax on
 
 if &term =~ '^screen'
