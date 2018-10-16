@@ -8,6 +8,7 @@ set expandtab
 set number
 set noswapfile
 set spell
+set columns=80
 syntax on
 
 if &term =~ '^screen'
