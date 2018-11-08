@@ -7,6 +7,7 @@ set number
 set noswapfile
 set spell
 set columns=80
+set clipboard=unnamedplus
 syntax on
 
 if &term =~ '^screen'
