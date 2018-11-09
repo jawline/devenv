@@ -1,6 +1,9 @@
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
-set tabstop=4
-set shiftwidth=4
+
+set tabstop=2
+set softtabstop=0 noexpandtab
+set shiftwidth=2
+
 set clipboard=unnamedplus
 set expandtab
 set number
