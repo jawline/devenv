@@ -2,6 +2,9 @@
 
 sudo apt install vim-gtk
 
+./install_node
+./install_rust
+
 git clone https://github.com/jawline/vim.git temp_vim
 
 cp -fr ./temp_vim/.vimrc ~/
