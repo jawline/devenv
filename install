@@ -9,5 +9,4 @@ cp -fr ./temp_vim/.vim/ ~/
 cp -fr ./temp_vim/.tmux.conf ~/
 rm -rf temp_vim/
 
-echo "alias open=xdg-open" >> ~/.bashrc
-echo "export PS1=\"\[\033[01;34m\]\w>\[\033[00m\] \"" >> ~/.bashrc
+cat .bashrc >> ~/.bashrc
