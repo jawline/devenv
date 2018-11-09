@@ -4,13 +4,15 @@ set tabstop=2
 set softtabstop=0 noexpandtab
 set shiftwidth=2
 
-set clipboard=unnamedplus
-set expandtab
 set number
 set noswapfile
 set spell
-set columns=80
+
+set columns=160
+
+" Enable system keyboard 
 set clipboard=unnamedplus
+
 syntax on
 
 if &term =~ '^screen'
