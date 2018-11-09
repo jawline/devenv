@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt install vim-gtk
-
 CDIR="$(pwd)"
 TDIR="$(mktemp -d)"
 
@@ -9,6 +7,14 @@ cd "${TDIR}"
 
 git clone https://github.com/jawline/vim.git res
 cd res
+
+if [ -x "$(command -v apt)" ]; then
+	./install_apt
+else
+	echo "--NO APT. INSTALL DEPS MANUALLY--"
+fi
+
+echo "--DONE WITH APT--"
 
 ./install_node
 ./install_rust
