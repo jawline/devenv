@@ -2,14 +2,23 @@
 
 sudo apt install vim-gtk
 
+CDIR="$(pwd)"
+TDIR="$(mktemp -d)"
+
+cd "${TDIR}"
+
+git clone https://github.com/jawline/vim.git res
+cd res
+
 ./install_node
 ./install_rust
 
-git clone https://github.com/jawline/vim.git temp_vim
-
-cp -fr ./temp_vim/.vimrc ~/
-cp -fr ./temp_vim/.vim/ ~/
-cp -fr ./temp_vim/.tmux.conf ~/
-rm -rf temp_vim/
-
+#Install custom bashrc
 cat .bashrc >> ~/.bashrc
+
+cp -fr .vimrc ~/
+cp -fr .vim/ ~/
+cp -fr .tmux.conf ~/
+
+cd "${CDIR}"
+rm -rf "${TDIR}"

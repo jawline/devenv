@@ -1,2 +1,3 @@
 #/usr/bin/env bash
-echo "1\n" | curl https://sh.rustup.rs -sSf | sh
+curl https://sh.rustup.rs -sSf > rustup
+sh rustup -y
