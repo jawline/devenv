@@ -10,7 +10,7 @@ cd res
 
 USBS="$(lsusb)"
 
-if [ "${USBS}" =~ ".*Dell Computer Corp.*" ]; then
+if [[ "${USBS}" =~ ".*Dell Computer Corp.*" ]]; then
 	./fix_9370
 fi
 
