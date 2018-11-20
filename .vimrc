@@ -8,7 +8,7 @@ set number
 set noswapfile
 set spell
 
-set columns=80
+set columns=150
 set list
 
 " Enable system keyboard 
