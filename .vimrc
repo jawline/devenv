@@ -9,7 +9,7 @@ set noswapfile
 set spell
 
 set columns=80
-set nolist wrap breakat&vim
+set nolist wrap linebreak breakat&vim
 
 " Enable system keyboard 
 set clipboard=unnamedplus
