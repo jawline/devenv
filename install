@@ -8,7 +8,9 @@ cd "${TDIR}"
 git clone https://github.com/jawline/vim.git res
 cd res
 
-if [ "$(lsusb)" ?? "Dell Computer Corp." ]; then
+USBS="$(lsusb)"
+
+if [ "${USBS}" ?? "Dell Computer Corp." ]; then
 	./fix_9370
 fi
 
