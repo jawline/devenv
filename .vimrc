@@ -3,7 +3,7 @@ set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
 syntax on
 
 " Tab settings
-set expandtab
+set noexpandtab
 set smarttab
 set softtabstop=2
 set tabstop=2
@@ -16,6 +16,7 @@ set spell
 " Default to a fairly large terminal size
 set columns=150
 set list
+set listchars=eol:$,trail:~,extends:>,precedes:<
 
 " Enable system keyboard 
 set clipboard=unnamedplus
