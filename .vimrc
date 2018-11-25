@@ -14,7 +14,6 @@ set noswapfile
 set spell
 
 " Default to a fairly large terminal size
-set columns=150
 set list
 set listchars=eol:$,trail:~,extends:>,precedes:<
 
