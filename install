@@ -25,6 +25,8 @@ echo "--DONE WITH APT--"
 ./install_node
 ./install_rust
 
+./setup_zsh
+
 #Install custom bashrc
 cat .bashrc >> ~/.bashrc
 
