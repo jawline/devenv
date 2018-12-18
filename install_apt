@@ -1,3 +1,4 @@
 #/usr/bin/env bash
 
-sudo apt install git vim-gtk build-essential clang curl wget
+sudo apt install zsh git vim-gtk build-essential clang curl wget
+chsh -s /bin/zsh "${USER}"
