@@ -1,1 +1,1 @@
-PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%1~%f %#'
+PROMPT='%F{green}%1~>%f '

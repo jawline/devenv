@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+rm -rf ~/.zprompts/
 mkdir ~/.zprompts/ && fpath=( "$HOME/.zprompts" $fpath )
 cp blakestheme.zsh ~/.zprompts/prompt_blakestheme_setup
 cp .zshrc ~/.zshrc
