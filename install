@@ -5,7 +5,7 @@ TDIR="$(mktemp -d)"
 
 cd "${TDIR}"
 
-git clone https://github.com/jawline/vim.git res
+git clone https://github.com/jawline/devenv.git res
 cd res
 
 USBS="$(lsusb)"
