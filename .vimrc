@@ -13,10 +13,6 @@ set number
 set noswapfile
 set spell
 
-" Default to a fairly large terminal size
-set list
-set listchars=eol:$,tab:\ \ ,trail:~,extends:>,precedes:<
-
 " Enable system keyboard 
 set clipboard=unnamedplus
 
