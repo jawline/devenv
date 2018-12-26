@@ -1,5 +1,6 @@
-" Add JavaScript ES6 syntax support
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
+set runtimepath^=~/.vim/colors/lucid.vim
+
 syntax on
 
 " Tab settings
