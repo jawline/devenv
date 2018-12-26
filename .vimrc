@@ -1,8 +1,8 @@
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
 syntax on
 
-set background=light
-colorscheme hybrid_material
+set background=dark
+colorscheme hybrid_reverse
 
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
