@@ -11,3 +11,5 @@ function open() {
 function game() {
 	parsecd app_daemon=1
 }
+
+alias tmux='tmux -2'
