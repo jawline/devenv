@@ -1,4 +1,6 @@
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
 syntax on
 
 set background=dark
