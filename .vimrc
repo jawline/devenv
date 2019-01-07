@@ -7,11 +7,9 @@ set background=dark
 colorscheme hybrid_reverse
 
 " Tab settings
-set noexpandtab
+set expandtab
 set smarttab
-set softtabstop=2
 set tabstop=2
-set shiftwidth=2
 
 set number
 set noswapfile
