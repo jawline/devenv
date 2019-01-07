@@ -9,7 +9,6 @@ colorscheme hybrid_reverse
 
 " Tab settings
 set expandtab
-set smarttab
 set tabstop=2
 
 set number
