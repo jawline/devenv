@@ -1,7 +1,7 @@
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-set wildignore+=*/tmp/*,*/bin/*,*.o,*.hi,*.so,*.swp,*.zip,*.dylib     " Ignore files for ctrl-p 
+set wildignore+=*/tmp/*,*/bin/*,*/node_modules/*,*.o,*.hi,*.so,*.swp,*.zip,*.dylib     " Ignore files for ctrl-p 
 syntax on
 
 set background=dark
