@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 kbd_mode -s
-sudo sh -c 'dumpkeys -k|grep -v Incr_Console|grep -v Decr_Console|grep -v Last_Console|loadkeys'
+sh -c 'dumpkeys -k|grep -v Incr_Console|grep -v Decr_Console|grep -v Last_Console|loadkeys'
 
 echo "#!/bin/sh
 case "${1}" in
@@ -11,3 +11,5 @@ esac
 
 chmod +x /etc/pm/sleep.d/10_resume_wifi
 nmcli radio wifi
+
+cp ./fixbt /lib/systemd/system-sleep/fixbt
