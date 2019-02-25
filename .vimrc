@@ -1,3 +1,7 @@
+call plug#begin('~/.vim/plugged')
+Plug 'lervag/vimtex'
+call plug#end()
+
 set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
