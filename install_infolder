@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+if [ -x "$(command -v apt)" ]; then
+	echo "[+] Installing Common Dependencies using APT"
+  ./install_apt
+else
+	echo "[+] Platform does not have APT. Install dependencies manually"
+fi
+
+./install_node
+./install_rust
+./setup_zsh
+./install_fixmon
+
+cp -fr .vimrc ~/
+cp -fr .vim/ ~/
+cp -fr .tmux.conf ~/
+
+cd "${CDIR}"
+rm -rf "${TDIR}"
+
+echo "[+] Checking for hardware patches"
+USBS="$(lsusb)"
+if [[ "${USBS}" =~ ".*Dell Computer Corp.*" ]]; then
+  echo "[+] 9370. Install patches?"
+  read -r -p "Are you sure? [y/N] " response
+  case "$response" in
+    [yY][eE][sS]|[yY]) 
+        ./fix_9370
+        ;;
+    *)
+        echo "[+] Patches Ignored"
+        ;;
+  esac
+fi
+
+echo "[+] Reboot for shell changes"
