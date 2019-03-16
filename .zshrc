@@ -12,7 +12,7 @@ function gitclean() {
   git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
 }
 
-export TERM="xterm-256color"
+export TERM="screen-256color"
 alias ls="ls --color=auto"
 alias tmux='tmux -2'
 source ~/.nvm/nvm.sh
