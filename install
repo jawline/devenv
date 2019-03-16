@@ -11,8 +11,7 @@ cd res
 USBS="$(lsusb)"
 
 if [[ "${USBS}" =~ ".*Dell Computer Corp.*" ]]; then
-	echo "9370 disabled"
-#	./fix_9370
+  ./fix_9370
 fi
 
 if [ -x "$(command -v apt)" ]; then
