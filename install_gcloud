@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-238.0.0-linux-x86_64.tar.gz gcloud.tar.gz
+tar zxvf gcloud.tar.gz google-cloud-sdk
+rm gcloud.tar.gz
+./google-cloud-sdk/install.sh
