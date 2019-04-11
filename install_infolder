@@ -20,19 +20,19 @@ cp -fr .tmux.conf ~/
 cd "${CDIR}"
 rm -rf "${TDIR}"
 
-echo "[+] Checking for hardware patches"
-USBS="$(lsusb)"
-if [[ "${USBS}" =~ ".*Dell Computer Corp.*" ]]; then
-  echo "[+] 9370. Install patches?"
-  read -r -p "Are you sure? [y/N] " response
-  case "$response" in
-    [yY][eE][sS]|[yY]) 
-        ./fix_9370
-        ;;
-    *)
-        echo "[+] Patches Ignored"
-        ;;
-  esac
-fi
+#echo "[+] Checking for hardware patches"
+#USBS="$(lsusb)"
+#if [[ "${USBS}" =~ ".*Dell Computer Corp.*" ]]; then
+#  echo "[+] 9370. Install patches?"
+#  read -r -p "Are you sure? [y/N] " response
+#  case "$response" in
+#    [yY][eE][sS]|[yY]) 
+#        ./fix_9370
+#        ;;
+#    *)
+#        echo "[+] Patches Ignored"
+#        ;;
+#  esac
+#fi
 
 echo "[+] Reboot for shell changes"
