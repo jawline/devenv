@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-kbd_mode -s
-sh -c 'dumpkeys -k|grep -v Incr_Console|grep -v Decr_Console|grep -v Last_Console|loadkeys'
 
 echo "#!/bin/sh
 case "${1}" in
