@@ -1,6 +1,6 @@
-set runtimepath^=~/.vim/bundle/vim-javascript-syntax.vim
+set runtimepath^=~/.vim/bundle/vim-javascript-syntax
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-set runtimepath^=~/.vim/bundle/Latex-Text-Formatter.vim
+set runtimepath^=~/.vim/bundle/Latex-Text-Formatter
 
 set wildignore+=*/tmp/*,*/bin/*,*/node_modules/*,*.o,*.hi,*.so,*.swp,*.zip,*.dylib     " Ignore files for ctrl-p 
 syntax on
