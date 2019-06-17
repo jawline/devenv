@@ -5,8 +5,13 @@ set runtimepath^=~/.vim/bundle/Latex-Text-Formatter
 set wildignore+=*/tmp/*,*/bin/*,*/node_modules/*,*.o,*.hi,*.so,*.swp,*.zip,*.dylib     " Ignore files for ctrl-p 
 syntax on
 
-set background=dark
-colorscheme hybrid_reverse
+set t_Co=256   " This is may or may not needed.
+
+set background=light
+colorscheme PaperColor
+
+"set background=dark
+"colorscheme hybrid_reverse
 
 " Tab settings
 set expandtab
