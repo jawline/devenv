@@ -7,11 +7,11 @@ syntax on
 
 set t_Co=256   " This is may or may not needed.
 
-set background=light
-colorscheme PaperColor
+"set background=light
+"colorscheme PaperColor
 
-"set background=dark
-"colorscheme hybrid_reverse
+set background=dark
+colorscheme hybrid_reverse
 
 " Tab settings
 set expandtab
