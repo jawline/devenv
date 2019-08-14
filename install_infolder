@@ -10,7 +10,7 @@ fi
 ./install_node
 ./install_rust
 ./setup_zsh
-./install_fixmon
+#./install_fixmon
 ./install_gcloud
 
 cp -fr .vimrc ~/
