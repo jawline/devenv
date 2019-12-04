@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+sudo apt-get install i3 i3-wm dunst i3lock i3status suckless-tools compton hsetroot rxvt-unicode xsel rofi fonts-noto fonts-mplus xsettingsd lxappearance scrot viewnior
+sudo mkdir -p /etc/X11/xorg.conf.d && sudo tee <<'EOF' /etc/X11/xorg.conf.d/90-touchpad.conf 1> /dev/null
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+EndSection
+EOF
+echo "Xft.dpi: 220" >> ~/.Xresources
+echo "Xft/Hinting 1
+Xft/RGBA "rgb"
+Xft/HintStyle "hintslight"
+Xft/Antialias 1
+" > ~/.xsettingsd
+mkdir -p ~/.config
+mkdir -p ~/.fonts
+cp -r .config/* ~/.config/
+cp -r .fotts/* ~/.fonts/*

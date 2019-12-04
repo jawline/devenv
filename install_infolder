@@ -12,6 +12,7 @@ fi
 ./setup_zsh
 #./install_fixmon
 ./install_gcloud
+./install_i3
 
 cp -fr .vimrc ~/
 cp -fr .vim/ ~/
