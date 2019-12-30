@@ -12,7 +12,7 @@ floating_modifier $super
 exec --no-startup-id hsetroot -center ~/.wallpaper.png
 exec --no-startup-id xsettingsd &
 exec --no-startup-id compton -b
-exec xrandr --dpi 220
+#exec xrandr --dpi 220
 
 # start a terminal
 bindsym $super+Return exec i3-sensible-terminal
