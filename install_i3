@@ -9,4 +9,5 @@ mkdir -p ~/.config
 mkdir -p ~/.fonts
 cp -r .config/* ~/.config/
 cp -r .fonts/* ~/.fonts/*
+./install_light
 ./install_termite
