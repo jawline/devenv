@@ -18,11 +18,11 @@ order += "battery 0"
 order += "tztime local"
 
 load {
-        format = "<span background='#f59335'> %5min\% </span>"
+        format = "<span background='#f59335'> %5min </span>"
 }
 
 memory {
-        format = "<span background='#f59335'> %available/%total </span>"
+        format = "<span background='#f59335'> %used/%total </span>"
 }
 
 cpu_temperature 0 {
