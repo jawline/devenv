@@ -11,11 +11,9 @@ general {
 order += "load"
 order += "cpu_temperature 0"
 order += "disk /"
-order += "disk /home"
 order += "ethernet enp1s0"
 order += "wireless wlp2s0"
-order += "volume master"
-order += "battery 1"
+order += "battery 0"
 order += "tztime local"
 
 load {
@@ -46,14 +44,12 @@ wireless wlp2s0 {
 }
 
 volume master {
-        format = "<span background='#ebcb8b'>  %volume </span>"
-        format_muted = "<span background='#ebcb8b'>  Muted </span>"
-        device = "default"
-        mixer = "Master"
-        mixer_idx = 0
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "pulse:alsa_output.pci-0000_00_1f.3.analog-stereo"
 }
 
-battery 1 {
+battery 0 {
 	last_full_capacity = true
         format = "<span background='#a3be8c'>  %status %percentage </span>"
         format_down = "No Battery"
