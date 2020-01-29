@@ -9,6 +9,7 @@ general {
 }
 
 order += "load"
+order += "memory"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "ethernet enp1s0"
@@ -17,7 +18,11 @@ order += "battery 0"
 order += "tztime local"
 
 load {
-        format = "<span background='#f59335'>  %5min Load </span>"
+        format = "<span background='#f59335'> %5min\% </span>"
+}
+
+memory {
+        format = "<span background='#f59335'> %available/%total </span>"
 }
 
 cpu_temperature 0 {
