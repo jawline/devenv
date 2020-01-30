@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 
-CDIR="$(pwd)"
-TDIR="$(mktemp -d)"
+./install_apt
+./install_node
+./install_rust
 
-cd "${TDIR}"
+./setup_zsh
 
-git clone https://github.com/jawline/devenv.git res
-cd res
+./termite/install_termite
+./i3wm/install_i3
 
-./install_infolder
+./google/install_gcloud
+
+cp -fr .vimrc ~/
+cp -fr .vim/ ~/
+cp -fr .tmux.conf ~/
+
+cd "${CDIR}"
+rm -rf "${TDIR}"
+
+cho "[+] Reboot for shell changes"

@@ -1,0 +1,2 @@
+#/usr/bin/env bash
+sudo apt install git vim-gtk build-essential clang curl wget

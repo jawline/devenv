@@ -1,0 +1,7 @@
+#/usr/bin/env bash
+sudo apt install zsh
+rm -rf ~/.zprompts/
+mkdir ~/.zprompts/ 
+cp blakestheme.zsh ~/.zprompts/prompt_blakestheme_setup
+cp .zshrc ~/.zshrc 
+chsh -s /bin/zsh "${USER}"
