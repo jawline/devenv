@@ -1,21 +1,22 @@
 #!/usr/bin/env bash
+set -e
 
-./install_apt
-./install_node
-./install_rust
+echo "Base Tools"
+(cd programming && ./install)
 
-./setup_zsh
+echo "Tmux"
+(cd tmux && ./install)
 
-./termite/install_termite
-./i3wm/install_i3
+echo "Zsh"
+(cd zsh && ./install)
 
-./google/install_gcloud
+echo "Termite"
+(cd termite && ./install)
 
-cp -fr .vimrc ~/
-cp -fr .vim/ ~/
-cp -fr .tmux.conf ~/
+echo "i3wm"
+(cd i3wm && ./install)
 
-cd "${CDIR}"
-rm -rf "${TDIR}"
+echo "Google cloud tools"
+(cd google && ./install)
 
-cho "[+] Reboot for shell changes"
+echo "[+] Reboot for shell changes"
