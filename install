@@ -13,8 +13,9 @@ echo "Zsh"
 echo "Termite"
 (cd termite && ./install)
 
-echo "i3wm"
-(cd i3wm && ./install)
+#Disabled after switch to Regolith
+#echo "i3wm"
+#(cd i3wm && ./install)
 
 echo "Google cloud tools"
 (cd google && ./install)
