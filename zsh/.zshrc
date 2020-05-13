@@ -20,3 +20,10 @@ setopt SHARE_HISTORY
 open() {
   xdg-open $1 &> /dev/null &
 }
+
+clip() {
+  xclip -selection clipboard
+}
+
+
+export PATH=$PATH:~/.bin/
