@@ -1,12 +1,10 @@
-#!/usr/bin/env sh
-set -e 
-
-rm -rf termite
-rm -rf vte-ng
-
+#!/usr/bin/env bash
+set -e
+rm -rf termite vte-ng
 sudo apt-get install -y \
   git \
   g++ \
+  libgtk2.0-dev \
   libgtk-3-dev \
   gtk-doc-tools \
   gnutls-bin \
