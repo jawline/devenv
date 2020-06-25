@@ -16,9 +16,6 @@ echo "Vim"
 echo "Termite"
 (cd termite && ./install)
 
-echo "Fingerprint Scanner"
-(cd fingerprint && ./install)
-
 #Disabled after switch to Regolith
 #echo "i3wm"
 #(cd i3wm && ./install)
