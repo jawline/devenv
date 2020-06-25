@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 set -e 
 
+rm -rf termite
+rm -rf vte-ng
+
 sudo apt-get install -y \
   git \
   g++ \

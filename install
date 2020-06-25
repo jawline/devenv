@@ -10,6 +10,9 @@ echo "Tmux"
 echo "Zsh"
 (cd zsh && ./install)
 
+echo "Vim"
+(cd vim && ./install)
+
 echo "Termite"
 (cd termite && ./install)
 
