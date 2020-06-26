@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
+echo "Tmux"
+(cd tmux && ./install)
+
 echo "Base Tools"
 (cd programming && ./install)
 
 echo "Installing Haskell"
 (cd haskell && ./install)
-
-echo "Tmux"
-(cd tmux && ./install)
-
-echo "Zsh"
-(cd zsh && ./install)
 
 echo "Vim"
 (cd vim && ./install)
