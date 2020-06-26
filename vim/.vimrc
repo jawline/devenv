@@ -21,6 +21,10 @@ set number
 set noswapfile
 set spell
 
+" Highlight trailing whitespace
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:match ExtraWhitespace /\s\+$/
+
 " Enable system keyboard 
 set clipboard=unnamedplus
 
