@@ -4,6 +4,9 @@ set -e
 echo "Base Tools"
 (cd programming && ./install)
 
+echo "Installing Haskell"
+(cd haskell && ./install)
+
 echo "Tmux"
 (cd tmux && ./install)
 

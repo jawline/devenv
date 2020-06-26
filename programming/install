@@ -1,5 +1,5 @@
 #/usr/bin/env bash
 set -e
-sudo apt install git vim-gtk build-essential clang curl wget
+sudo apt install --assume-yes git vim-gtk build-essential clang curl wget
 ./install_node
 ./install_rust
