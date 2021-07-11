@@ -1,15 +1,29 @@
-set runtimepath^=~/.vim/bundle/vim-javascript-syntax
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-set runtimepath^=~/.vim/bundle/Latex-Text-Formatter
+" Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
-set wildignore+=*/tmp/*,*/bin/*,*/node_modules/*,*.o,*.hi,*.so,*.swp,*.zip,*.dylib     " Ignore files for ctrl-p 
-syntax on
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
 
-set t_Co=256   " This is may or may not needed.
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+map ht :FZF<CR>
+
+" This is may or may not needed.
+set t_Co=256   
 
 "set background=light
 "colorscheme PaperColor
 
+" Theme
 set background=dark
 colorscheme hybrid_reverse
 

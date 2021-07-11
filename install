@@ -10,16 +10,11 @@ echo "Base Tools"
 echo "Installing Haskell"
 (cd haskell && ./install)
 
+echo "Install Ocaml"
+(cd ocaml && ./install)
+
 echo "Vim"
 (cd vim && ./install)
-
-# Optional - patch termite for Ubuntu 20.04
-#echo "Termite"
-#(cd termite && ./install)
-
-#Disabled after switch to Regolith
-#echo "i3wm"
-#(cd i3wm && ./install)
 
 echo "Google cloud tools"
 (cd google && ./install)
