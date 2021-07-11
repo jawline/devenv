@@ -16,6 +16,9 @@ echo "Install Ocaml"
 echo "Vim"
 (cd vim && ./install)
 
+echo "Zsh"
+(cd zsh && ./install)
+
 echo "Google cloud tools"
 (cd google && ./install)
 
