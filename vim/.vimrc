@@ -13,12 +13,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'vim-airline/vim-airline'
+
 call plug#end()
 
 map ht :FZF<CR>
 
 " This is may or may not needed.
-set t_Co=256   
+set t_Co=256
 
 "set background=light
 "colorscheme PaperColor
@@ -35,11 +37,15 @@ set number
 set noswapfile
 set spell
 
+" Auto-reload files when they change on disk
+set autoread
+au CursorHold * checktime
+
 " Highlight trailing whitespace
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 
-" Enable system keyboard 
+" Enable system keyboard
 set clipboard=unnamedplus
 
 " Handle tmux weird keys
@@ -50,3 +56,5 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+set hlsearch
