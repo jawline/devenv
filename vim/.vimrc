@@ -12,20 +12,18 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 
 call plug#end()
 
-map ht :FZF<CR>
-
-" This is may or may not needed.
-set t_Co=256   
-
-"set background=light
-"colorscheme PaperColor
+" Hit Ctrl-F to launch FZF
+map <C-F> :FZF<CR>
 
 " Theme
+
 set background=dark
-colorscheme hybrid_reverse
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
 
 " Tab settings
 set expandtab
