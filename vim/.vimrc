@@ -79,3 +79,6 @@ set hlsearch
 " Switch on syntax highlighting
 syntax enable
 filetype plugin indent on
+
+" Remap Escape to also exit terminal mode
+tnoremap <expr> <esc> &filetype == 'fzf' ? "\<esc>" : "\<c-\>\<c-n>"

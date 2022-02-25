@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-mkdir -p ~/.bin/
-cp ./fixmon ~/.bin/fixmon
-
-echo "[+] ~/.bin/fixmon must be added to shortcuts of WM"
