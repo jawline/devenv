@@ -19,7 +19,4 @@ echo "Vim"
 echo "Zsh"
 (cd zsh && ./install)
 
-echo "Google cloud tools"
-(cd google && ./install)
-
 echo "[+] Reboot for shell changes"
