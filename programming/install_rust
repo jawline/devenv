@@ -3,3 +3,4 @@ curl https://sh.rustup.rs -sSf > rustup
 sh rustup -y
 source $HOME/.cargo/env
 rustup toolchain install nightly
+rustup default nightly
