@@ -1,5 +1,5 @@
 #/usr/bin/env bash
 set -e
-sudo apt install --assume-yes git vim-gtk build-essential clang curl wget python3 python3-pip
+sudo apt install --assume-yes git vim-gtk build-essential clang curl wget python3 python3-pip ripgrep
 ./install_node
 ./install_rust

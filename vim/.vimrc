@@ -26,6 +26,9 @@ Plug 'preservim/nerdtree'
 " Rust integration
 Plug 'rust-lang/rust.vim'
 
+" Ripgrep integration
+Plug 'jremmen/vim-ripgrep'
+
 call plug#end()
 
 " Hit Ctrl-F to launch FZF
