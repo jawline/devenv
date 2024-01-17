@@ -23,10 +23,27 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.dpi = 220;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    desktopManager.xterm.enable = false;
+
+    displayManager = {
+        defaultSession = "none+i3";
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu 
+        i3status 
+        i3lock 
+        rofi
+        alacritty
+     ];
+    };
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -36,11 +53,13 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.greenclip.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -64,11 +83,11 @@ in
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  home-manager.users.blake = { lib, ... }: {
+  home-manager.users.blake = { lib, config, ... }: {
     home.stateVersion = "23.11";
     home.packages = [
       # Dev
-      pkgs.ripgrep pkgs.tmux pkgs.wget pkgs.curl pkgs.gcc pkgs.git pkgs.rustup pkgs.ocaml pkgs.opam
+      pkgs.ripgrep pkgs.tmux pkgs.wget pkgs.curl pkgs.gcc pkgs.git pkgs.rustup pkgs.ocaml pkgs.opam pkgs.gnumake pkgs.gnutar pkgs.gnupatch pkgs.gzip
 
       # zsh 
       pkgs.fzf pkgs.zinit
@@ -80,25 +99,24 @@ in
       userEmail = "blake@parsed.uk";
     };
 
-    programs.vim.enable = true;
+    #programs.vim.enable = true;
 
     home.file.".zshrc".source = ./etc/zshrc;
     home.file.".vimrc".source = ./etc/vimrc;
     home.file.".tmux.conf".source = ./etc/tmux.conf;
+    #home.file.".config/i3/config".source = ./etc/i3/config;
 
     home.activation = {
 
-      initializeVim = lib.hm.dag.entryAfter ["installPackages"] ''
-        echo ':q' | vim
-      '';
-
-      initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
-        opam init -y
-        opam update -y
-        opam install dune core async hardcaml -y
-      '';
+      #initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
+      #  export PATH="${config.home.path}/bin:$PATH"
+      #  opam init -y
+      #  opam update -y
+      #  opam install dune core async hardcaml -y
+      #'';
 
       initializeRust = lib.hm.dag.entryAfter ["installPackages"] ''
+	export PATH="${config.home.path}/bin:$PATH"
         rustup default nightly
         rustup update
       '';
