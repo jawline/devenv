@@ -73,6 +73,14 @@ in
       # zsh 
       pkgs.fzf pkgs.zinit
     ];
+
+    programs.git = {
+      enable = true;
+      userName  = "jawline";
+      userEmail = "blake@parsed.uk";
+    };
+
+    ".zshrc".source = ./zshrc
   };
 
   # Some programs need SUID wrappers, can be configured further or are
