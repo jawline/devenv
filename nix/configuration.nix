@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
@@ -64,7 +64,7 @@ in
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  home-manager.users.blake = {
+  home-manager.users.blake = { lib, ... }: {
     home.stateVersion = "23.11";
     home.packages = [
       # Dev
@@ -80,23 +80,30 @@ in
       userEmail = "blake@parsed.uk";
     };
 
-    ".zshrc".source = ./zshrc
+    programs.vim.enable = true;
+
+    home.file.".zshrc".source = ./etc/zshrc;
+    home.file.".vimrc".source = ./etc/vimrc;
+    home.file.".tmux.conf".source = ./etc/tmux.conf;
+
+    home.activation = {
+
+      initializeVim = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        echo ':q' | vim
+      '';
+
+      initializeOcaml = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        opam init -y
+        opam update -y
+        opam install dune core async hardcaml -y
+      '';
+
+      initializeRust = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        rustup default nightly
+        rustup update
+      '';
+    };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # networking.firewall.enable = false;
 
   system.stateVersion = "23.11";
 }

@@ -2,9 +2,6 @@
 set -euvx
 
 cp configuration.nix /etc/nixos/configuration.nix
+rm -rf /etc/nixos/etc/
+cp -r ./etc /etc/nixos/etc
 nixos-rebuild switch
-
-./install_zsh
-./install_tmux
-./install_vim
-./install_ocaml
