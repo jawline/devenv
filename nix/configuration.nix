@@ -78,13 +78,16 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ vim zsh ];
+  environment.systemPackages = with pkgs; [ zsh vim ];
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  environment.variables = { EDITOR = "vim"; };
+
   home-manager.users.blake = { lib, config, ... }: {
     home.stateVersion = "23.11";
+
     home.packages = [
       # Dev
       pkgs.ripgrep pkgs.tmux pkgs.wget pkgs.curl pkgs.gcc pkgs.git pkgs.rustup pkgs.ocaml pkgs.opam pkgs.gnumake pkgs.gnutar pkgs.gnupatch pkgs.gzip
@@ -99,12 +102,13 @@ in
       userEmail = "blake@parsed.uk";
     };
 
+
     #programs.vim.enable = true;
 
     home.file.".zshrc".source = ./etc/zshrc;
     home.file.".vimrc".source = ./etc/vimrc;
     home.file.".tmux.conf".source = ./etc/tmux.conf;
-    #home.file.".config/i3/config".source = ./etc/i3/config;
+    home.file.".config/i3/config".source = ./etc/i3/config;
 
     home.activation = {
 
