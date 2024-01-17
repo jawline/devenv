@@ -1,22 +1,6 @@
 #!/usr/bin/env bash
-set -e
-
-echo "Tmux"
-(cd tmux && ./install)
-
-echo "Base Tools"
-(cd programming && ./install)
-
-echo "Installing Haskell"
-(cd haskell && ./install)
-
-echo "Install Ocaml"
-(cd ocaml && ./install)
-
-echo "Vim"
-(cd vim && ./install)
-
-echo "Zsh"
-(cd zsh && ./install)
-
-echo "[+] Reboot for shell changes"
+set -euvx
+cp configuration.nix /etc/nixos/configuration.nix
+rm -rf /etc/nixos/etc/
+cp -r ./etc /etc/nixos/etc
+nixos-rebuild switch

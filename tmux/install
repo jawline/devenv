@@ -1,6 +1,0 @@
-#!/usr/bin/env bash 
-set -e
-echo "Install tmux"
-sudo apt install --assume-yes tmux
-echo "Cp conf"
-cp .tmux.conf ~/

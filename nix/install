@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -euvx
-cp configuration.nix /etc/nixos/configuration.nix
-rm -rf /etc/nixos/etc/
-cp -r ./etc /etc/nixos/etc
-nixos-rebuild switch

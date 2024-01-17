@@ -78,7 +78,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ zsh vim ];
+  environment.systemPackages = with pkgs; [ zsh vim light ];
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
