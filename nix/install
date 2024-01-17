@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euvx
+
+cp configuration.nix /etc/nixos/configuration.nix
+nixos-rebuild switch
+
+./install_zsh
+./install_tmux
+./install_vim
+./install_ocaml

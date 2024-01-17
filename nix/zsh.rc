@@ -1,0 +1,33 @@
+# Zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# FZF reverse history search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
+
+# My config
+autoload -Uz vcs_info
+precmd() { vcs_info }
+zstyle ':vcs_info:git:*' formats '%b '
+setopt PROMPT_SUBST
+PROMPT='%F{blue}%~%f %F{red}${vcs_info_msg_0_}%f$ '
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+export TERM="screen-256color"
+
+#History
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=30000
+SAVEHIST=30000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+open() {
+  xdg-open $1 &> /dev/null &
+}
+
+export PATH=$PATH:~/.bin/

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euvx
+echo "Installing to zsh"
+rm -rf ~/.zprompts/
+mkdir ~/.zprompts/
+cp zsh.rc ~/.zshrc
