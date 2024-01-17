@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 opam init
 opam update
-opam install dune
+opam install dune core hardcaml async
