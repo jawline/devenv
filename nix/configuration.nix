@@ -88,17 +88,17 @@ in
 
     home.activation = {
 
-      initializeVim = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      initializeVim = lib.hm.dag.entryAfter ["installPackages"] ''
         echo ':q' | vim
       '';
 
-      initializeOcaml = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
         opam init -y
         opam update -y
         opam install dune core async hardcaml -y
       '';
 
-      initializeRust = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      initializeRust = lib.hm.dag.entryAfter ["installPackages"] ''
         rustup default nightly
         rustup update
       '';

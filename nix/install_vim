@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-set -euvx
-cp vimrc ~/.vimrc
-cp -r ./vim/ ~/.vim/
