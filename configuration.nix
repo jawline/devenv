@@ -34,6 +34,13 @@ in {
     pulse.enable = true;
   };
 
+  services.logind = {
+    extraConfig = ''
+      IdleAction=hybrid-sleep
+      IdleActionSec=15min
+    '';
+  };
+
   environment.systemPackages = with pkgs; [ zsh vim light ];
 
   programs.zsh.enable = true;
