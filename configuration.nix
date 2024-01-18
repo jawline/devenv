@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-in
-{
-  imports = [  (import "${home-manager}/nixos") ./hardware-configuration.nix ];
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in {
+  imports = [ (import "${home-manager}/nixos") ./hardware-configuration.nix ];
 
   # Meta
   nixpkgs.config.allowUnfree = true;
@@ -13,7 +13,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # General System
-  networking.hostName = "laptop"; 
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Hong_Kong";
   i18n.defaultLocale = "en_HK.UTF-8";
@@ -40,7 +40,6 @@ in
   users.defaultUserShell = pkgs.zsh;
   environment.variables = { EDITOR = "vim"; };
 
-
   # Display
 
   services.xserver.enable = true;
@@ -48,33 +47,22 @@ in
   services.xserver = {
     desktopManager.xterm.enable = false;
 
-    displayManager = {
-        defaultSession = "none+i3";
-    };
+    displayManager = { defaultSession = "none+i3"; };
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [
-        dmenu 
-        i3status 
-        i3lock 
-        rofi
-        alacritty
-     ];
+      extraPackages = with pkgs; [ dmenu i3status i3lock rofi alacritty ];
     };
 
     layout = "us";
     xkbVariant = "";
   };
 
-  
   users.users.blake = {
     isNormalUser = true;
     description = "Blake";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
+    packages = with pkgs; [ firefox ];
   };
 
   home-manager.users.blake = { lib, config, ... }: {
@@ -82,15 +70,28 @@ in
 
     home.packages = [
       # Dev
-      pkgs.ripgrep pkgs.tmux pkgs.wget pkgs.curl pkgs.gcc pkgs.git pkgs.rustup pkgs.ocaml pkgs.opam pkgs.gnumake pkgs.gnutar pkgs.gnupatch pkgs.gzip
+      pkgs.ripgrep
+      pkgs.tmux
+      pkgs.wget
+      pkgs.curl
+      pkgs.gcc
+      pkgs.git
+      pkgs.rustup
+      pkgs.ocaml
+      pkgs.opam
+      pkgs.gnumake
+      pkgs.gnutar
+      pkgs.gnupatch
+      pkgs.gzip
 
       # zsh 
-      pkgs.fzf pkgs.zinit
+      pkgs.fzf
+      pkgs.zinit
     ];
 
     programs.git = {
       enable = true;
-      userName  = "jawline";
+      userName = "jawline";
       userEmail = "blake@parsed.uk";
     };
 
@@ -101,17 +102,17 @@ in
 
     home.activation = {
 
-      initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
+      initializeOcaml = lib.hm.dag.entryAfter [ "installPackages" ] ''
         export PATH="${config.home.path}/bin:$PATH"
         opam init -y
         opam update -y
         opam install dune core async hardcaml -y
       '';
 
-      initializeRust = lib.hm.dag.entryAfter ["installPackages"] ''
-	export PATH="${config.home.path}/bin:$PATH"
-        rustup default nightly
-        rustup update
+      initializeRust = lib.hm.dag.entryAfter [ "installPackages" ] ''
+        	export PATH="${config.home.path}/bin:$PATH"
+                rustup default nightly
+                rustup update
       '';
     };
   };
