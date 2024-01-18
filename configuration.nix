@@ -48,7 +48,6 @@ in {
   environment.variables = { EDITOR = "vim"; };
 
   # Display
-
   services.xserver = {
 
     enable = true;
@@ -67,6 +66,10 @@ in {
     layout = "us";
     xkbVariant = "";
   };
+
+  programs.xss-lock.enable = true;
+
+  # User
 
   users.users.blake = {
     isNormalUser = true;
