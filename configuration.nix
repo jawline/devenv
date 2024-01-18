@@ -84,6 +84,10 @@ in {
     xkbVariant = "";
   };
 
+  security.sudo.extraRules = [
+    { groups = [ "wheel" ]; commands = [ "${pkgs.light}/bin/light" ]; }
+  ]; 
+
   programs.xss-lock.enable = true;
 
   # User
