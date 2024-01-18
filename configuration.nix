@@ -1,55 +1,23 @@
-{ lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
 in
 {
-  imports =
-    [  (import "${home-manager}/nixos") ./hardware-configuration.nix ];
+  imports = [  (import "${home-manager}/nixos") ./hardware-configuration.nix ];
 
-  # Bootloader.
+  # Meta
+  nixpkgs.config.allowUnfree = true;
+
+  # Boot
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+
+  # General System
   networking.hostName = "laptop"; 
-
-  # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
   time.timeZone = "Asia/Hong_Kong";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_HK.UTF-8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.dpi = 220;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver = {
-    desktopManager.xterm.enable = false;
-
-    displayManager = {
-        defaultSession = "none+i3";
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu 
-        i3status 
-        i3lock 
-        rofi
-        alacritty
-     ];
-    };
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -67,6 +35,40 @@ in
     pulse.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [ zsh vim light ];
+
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+  environment.variables = { EDITOR = "vim"; };
+
+
+  # Display
+
+  services.xserver.enable = true;
+  services.xserver.dpi = 220;
+  services.xserver = {
+    desktopManager.xterm.enable = false;
+
+    displayManager = {
+        defaultSession = "none+i3";
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu 
+        i3status 
+        i3lock 
+        rofi
+        alacritty
+     ];
+    };
+
+    layout = "us";
+    xkbVariant = "";
+  };
+
+  
   users.users.blake = {
     isNormalUser = true;
     description = "Blake";
@@ -75,15 +77,6 @@ in
       firefox
     ];
   };
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [ zsh vim light ];
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  environment.variables = { EDITOR = "vim"; };
 
   home-manager.users.blake = { lib, config, ... }: {
     home.stateVersion = "23.11";
@@ -102,9 +95,6 @@ in
       userEmail = "blake@parsed.uk";
     };
 
-
-    #programs.vim.enable = true;
-
     home.file.".zshrc".source = ./etc/zshrc;
     home.file.".vimrc".source = ./etc/vimrc;
     home.file.".tmux.conf".source = ./etc/tmux.conf;
@@ -112,12 +102,12 @@ in
 
     home.activation = {
 
-      #initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
-      #  export PATH="${config.home.path}/bin:$PATH"
-      #  opam init -y
-      #  opam update -y
-      #  opam install dune core async hardcaml -y
-      #'';
+      initializeOcaml = lib.hm.dag.entryAfter ["installPackages"] ''
+        export PATH="${config.home.path}/bin:$PATH"
+        opam init -y
+        opam update -y
+        opam install dune core async hardcaml -y
+      '';
 
       initializeRust = lib.hm.dag.entryAfter ["installPackages"] ''
 	export PATH="${config.home.path}/bin:$PATH"
