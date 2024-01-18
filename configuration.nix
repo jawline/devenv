@@ -12,7 +12,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   # General System
   networking.hostName = "laptop"; 
   networking.networkmanager.enable = true;
@@ -45,7 +44,7 @@ in
   # Display
 
   services.xserver.enable = true;
-  services.xserver.dpi = 220;
+  services.xserver.dpi = 180;
   services.xserver = {
     desktopManager.xterm.enable = false;
 
