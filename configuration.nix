@@ -42,9 +42,12 @@ in {
 
   # Display
 
-  services.xserver.enable = true;
-  services.xserver.dpi = 180;
   services.xserver = {
+
+    enable = true;
+    dpi = 180;
+    xautolock.enable = true;
+
     desktopManager.xterm.enable = false;
 
     displayManager = { defaultSession = "none+i3"; };
