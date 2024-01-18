@@ -31,3 +31,5 @@ open() {
 }
 
 export PATH=$PATH:~/.bin/
+
+eval $(opam env)

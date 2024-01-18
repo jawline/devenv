@@ -21,6 +21,9 @@
     # zsh 
     pkgs.fzf
     pkgs.zinit
+
+    # ocaml system dependencies
+    pkgs.gmp
   ];
 
   programs.git = {
@@ -39,8 +42,8 @@
     initializeOcaml = lib.hm.dag.entryAfter [ "installPackages" ] ''
       export PATH="${config.home.path}/bin:$PATH"
       opam init -y
+      eval $(opam env)
       opam update -y
-      opam install dune core async hardcaml -y
     '';
 
     initializeRust = lib.hm.dag.entryAfter [ "installPackages" ] ''

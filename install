@@ -4,4 +4,4 @@ cp configuration.nix /etc/nixos/configuration.nix
 cp home.nix /etc/nixos/home.nix
 rm -rf /etc/nixos/etc/
 cp -r ./etc /etc/nixos/etc
-nixos-rebuild switch
+nixos-rebuild --show-trace --verbose switch
