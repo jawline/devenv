@@ -92,7 +92,7 @@ bindsym $super+Shift+r restart
 bindsym $super+q exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 # lock
-bindsym #super+l i3lock
+bindsym $super+l i3lock
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
