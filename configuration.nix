@@ -47,10 +47,10 @@ in {
     settings = {
       CPU_SCALING_GOVERNOR_ON_AC = "performance";
       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-  
+
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-  
+
       CPU_MIN_PERF_ON_AC = 0;
       CPU_MAX_PERF_ON_AC = 100;
       CPU_MIN_PERF_ON_BAT = 0;
@@ -68,7 +68,7 @@ in {
   services.xserver = {
 
     enable = true;
-    dpi = 180;
+    dpi = 140;
     xautolock.enable = true;
 
     desktopManager.xterm.enable = false;
@@ -84,9 +84,13 @@ in {
     xkbVariant = "";
   };
 
-  security.sudo.extraRules = [
-    { groups = [ "wheel" ]; commands = [ "${pkgs.light}/bin/light" ]; }
-  ]; 
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      groups = [ "wheel" ];
+      commands = [ "${pkgs.light}/bin/light" ];
+    }];
+  };
 
   programs.xss-lock.enable = true;
 
