@@ -65,7 +65,7 @@ in {
   services.xserver = {
 
     enable = true;
-    dpi = 150;
+    dpi = 130;
     xautolock.enable = true;
 
     desktopManager.xterm.enable = false;
