@@ -5,12 +5,9 @@ let
 in {
   imports = [ (import "${home-manager}/nixos") ./hardware-configuration.nix ];
 
-  # Meta
   nixpkgs.config.allowUnfree = true;
 
-  # Boot
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = import ./boot.nix { };
 
   # General System
   networking.hostName = "laptop";
@@ -68,7 +65,7 @@ in {
   services.xserver = {
 
     enable = true;
-    dpi = 140;
+    dpi = 150;
     xautolock.enable = true;
 
     desktopManager.xterm.enable = false;
@@ -77,7 +74,7 @@ in {
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ dmenu i3status i3lock rofi alacritty ];
+      extraPackages = with pkgs; [ dmenu polybar i3lock rofi alacritty ];
     };
 
     layout = "us";
@@ -87,6 +84,7 @@ in {
   security.sudo = {
     enable = true;
     extraRules = [{
+      runAs="root";
       groups = [ "wheel" ];
       commands = [ "${pkgs.light}/bin/light" ];
     }];

@@ -36,6 +36,8 @@
   home.file.".vimrc".source = ./etc/vimrc;
   home.file.".tmux.conf".source = ./etc/tmux.conf;
   home.file.".config/i3/config".source = ./etc/i3/config;
+  home.file.".config/polybar/launch.sh".source = ./etc/polybar/launch.sh;
+  home.file.".config/polybar/config.ini".source = ./etc/polybar/config.ini;
 
   home.activation = {
 

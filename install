@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euvx
+cp boot.nix /etc/nixos/boot.nix
 cp configuration.nix /etc/nixos/configuration.nix
 cp home.nix /etc/nixos/home.nix
 rm -rf /etc/nixos/etc/
