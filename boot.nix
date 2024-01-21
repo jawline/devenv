@@ -5,6 +5,6 @@
   };
 
   kernelParams = [
-    "acpi_osi='Windows 2020'"
+    "acpi_osi=\"Windows 2020\""
   ];
 }
