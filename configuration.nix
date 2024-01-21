@@ -74,7 +74,7 @@ in {
 
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [ dmenu polybar i3lock rofi alacritty ];
+      extraPackages = with pkgs; [ acpi dmenu polybar i3lock rofi alacritty ];
     };
 
     layout = "us";
