@@ -23,7 +23,7 @@
     pkgs.zinit
 
     # ocaml system dependencies
-    pkgs.gmp
+    pkgs.gmp5
   ];
 
   programs.git = {
