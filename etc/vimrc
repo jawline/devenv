@@ -85,3 +85,6 @@ filetype plugin indent on
 
 " Remap Escape to also exit terminal mode
 tnoremap <expr> <esc> &filetype == 'fzf' ? "\<esc>" : "\<c-\>\<c-n>"
+
+" Enable ocaml Merlin
+set rtp+=<SHARE_DIR>/merlin/vim

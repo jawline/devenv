@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 set -euvx
-cp boot.nix /etc/nixos/boot.nix
-cp configuration.nix /etc/nixos/configuration.nix
-cp home.nix /etc/nixos/home.nix
-rm -rf /etc/nixos/etc/
-cp -r ./etc /etc/nixos/etc
-nixos-rebuild --show-trace --verbose switch
+sudo cp boot.nix /etc/nixos/boot.nix
+sudo cp configuration.nix /etc/nixos/configuration.nix
+sudo cp home.nix /etc/nixos/home.nix
+sudo rm -rf /etc/nixos/etc/
+sudo cp -r ./etc /etc/nixos/etc
+sudo nixos-rebuild --show-trace --verbose switch
+
+# Install ocaml packages (home manager activation scripts try and install on every startup)
+opam init -y
+eval $(opam env)
+opam update -y
+opam install -y dune core async hardcaml
+
+# Install Rust (ditto)
+rustup default nightly
+rustup update

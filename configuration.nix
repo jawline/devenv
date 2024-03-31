@@ -55,7 +55,7 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [ zsh vim light ];
+  environment.systemPackages = with pkgs; [ zsh vim light gmp ];
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;

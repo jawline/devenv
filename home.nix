@@ -17,13 +17,11 @@
     pkgs.gnutar
     pkgs.gnupatch
     pkgs.gzip
+    pkgs.gmp
 
     # zsh 
     pkgs.fzf
     pkgs.zinit
-
-    # ocaml system dependencies
-    pkgs.gmp5
   ];
 
   programs.git = {
@@ -38,20 +36,4 @@
   home.file.".config/i3/config".source = ./etc/i3/config;
   home.file.".config/polybar/launch.sh".source = ./etc/polybar/launch.sh;
   home.file.".config/polybar/config.ini".source = ./etc/polybar/config.ini;
-
-  home.activation = {
-
-    initializeOcaml = lib.hm.dag.entryAfter [ "installPackages" ] ''
-      export PATH="${config.home.path}/bin:$PATH"
-      opam init -y
-      eval $(opam env)
-      opam update -y
-    '';
-
-    initializeRust = lib.hm.dag.entryAfter [ "installPackages" ] ''
-      	export PATH="${config.home.path}/bin:$PATH"
-              rustup default nightly
-              rustup update
-    '';
-  };
 }
