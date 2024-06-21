@@ -17,7 +17,13 @@
     pkgs.gnutar
     pkgs.gnupatch
     pkgs.gzip
-    pkgs.gmp
+    pkgs.gmp5
+    pkgs.gmp5.dev
+    pkgs.flex
+    pkgs.bison
+    pkgs.zlib.dev
+    pkgs.pkg-config
+    pkgs.gnum4
 
     # zsh 
     pkgs.fzf
