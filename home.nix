@@ -24,6 +24,7 @@
     pkgs.zlib.dev
     pkgs.pkg-config
     pkgs.gnum4
+    pkgsCross.riscv32.gcc
 
     # zsh 
     pkgs.fzf
