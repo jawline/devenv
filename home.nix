@@ -21,12 +21,10 @@
     pkgs.gmp5.dev
     pkgs.flex
     pkgs.bison
+    pkgs.zlib
     pkgs.zlib.dev
     pkgs.pkg-config
     pkgs.gnum4
-
-    pkgs.pkgsCross.riscv32.coreutils
-    pkgs.pkgsCross.riscv32.gcc
 
     # zsh 
     pkgs.fzf

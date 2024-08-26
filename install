@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
-set -euvx
-sudo cp boot.nix /etc/nixos/boot.nix
-sudo cp configuration.nix /etc/nixos/configuration.nix
-sudo cp home.nix /etc/nixos/home.nix
-sudo rm -rf /etc/nixos/etc/
-sudo cp -r ./etc /etc/nixos/etc
-sudo nixos-rebuild --show-trace --verbose switch
 
 # Install ocaml packages (home manager activation scripts try and install on every startup)
 opam init -y
 eval $(opam env)
 opam update -y
-opam install -y dune core async hardcaml
+
+# Install JS compiler extensions
+opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git#external-packages
+opam repo add janestreet-bleeding-with-extensions https://github.com/janestreet/opam-repository.git#with-extensions
+
+opam switch create 4.14.1-jst --repos janestreet-bleeding-with-extensions,default --packages ocaml-base-compiler=4.14.1-18,dune=3.11.0
+eval $(opam env --switch 4.14.1-jst)
+
+opam repository add janestreet-bleeding-external --set-default --all-switches
+opam repository add janestreet-bleeding-with-extensions --set-default --all-switches
+
+opam install -y dune core async hardcaml hardcaml_waveterm
+opam pin -y git@github.com:janestreet/ppx_hardcaml.git --update-invariant
 
 # Install Rust (ditto)
 rustup default nightly
