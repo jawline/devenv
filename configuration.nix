@@ -70,7 +70,7 @@ in {
 
     desktopManager.xterm.enable = false;
 
-    displayManager = { startx = true ; defaultSession = "none+i3"; };
+    displayManager = { defaultSession = "none+i3"; };
 
     windowManager.i3 = {
       enable = true;
