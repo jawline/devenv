@@ -55,7 +55,12 @@ in {
     };
   };
 
-  environment.systemPackages = with pkgs; [ zsh vim light ];
+  environment.systemPackages = with pkgs; [
+    zsh
+    vim
+    light
+    autoconf
+  ];
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -70,7 +75,7 @@ in {
 
     desktopManager.xterm.enable = false;
 
-    displayManager = { defaultSession = "none+i3"; };
+    displayManager = { lightdm.enable = true ; defaultSession = "none+i3"; };
 
     windowManager.i3 = {
       enable = true;

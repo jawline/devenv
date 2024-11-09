@@ -21,10 +21,21 @@
     pkgs.gmp5.dev
     pkgs.flex
     pkgs.bison
-    pkgs.zlib
-    pkgs.zlib.dev
+    pkgs.zlib-ng
+    pkgs.zlib-ng.dev
     pkgs.pkg-config
     pkgs.gnum4
+    pkgs.mpfr
+    pkgs.autoconf
+    pkgs.automake
+    pkgs.python3
+    pkgs.texinfo
+    pkgs.gperf
+    pkgs.libtool
+    pkgs.patchutils
+    pkgs.bc
+    pkgs.ninja
+    pkgs.cmake
 
     # zsh 
     pkgs.fzf
