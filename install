@@ -5,10 +5,13 @@ set -euv
 
 # Install JS compiler extensions
 opam init -y
-opam repo add janestreet-bleeding-external https://github.com/janestreet/opam-repository.git
+opam repo add janestreet-bleeding https://github.com/janestreet/opam-repository.git
+opam repository add janestreet-bleeding --all-switches
 eval $(opam env)
 opam update -y
 opam upgrade -y
+opam upgrade ocaml -y
+opam upgrade ocaml-config -y
 opam install -y dune core async hardcaml hardcaml_waveterm
 
 # Install Rust (ditto)
