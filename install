@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euv
 cp ./etc/vimrc ~/.vimrc
-cp ./etc/tmux.conf ~/tmux.conf
+cp ./etc/tmux.conf ~/.tmux.conf
 cp ./etc/zshrc ~/.zshrc
 
 ./install_ocaml
