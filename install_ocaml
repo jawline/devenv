@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Install JS compiler extensions
+opam init -y
+opam switch create 5.2.0+flambda2 --repos with-extensions=git+https://github.com/janestreet/opam-repository.git#with-extensions,default
+eval $(opam env --switch 5.2.0+flambda2)
+opam update -y
+opam upgrade -y
+opam upgrade ocaml -y
+opam upgrade ocaml-config -y
+opam install -y dune core async hardcaml hardcaml_waveterm

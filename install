@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
 set -euv
 
-# Install ocaml packages (home manager activation scripts try and install on every startup)
-
-# Install JS compiler extensions
-opam init -y
-opam repo add janestreet-bleeding https://github.com/janestreet/opam-repository.git
-opam repository add janestreet-bleeding --all-switches
-eval $(opam env)
-opam update -y
-opam upgrade -y
-opam upgrade ocaml -y
-opam upgrade ocaml-config -y
-opam install -y dune core async hardcaml hardcaml_waveterm
+./install_ocaml
 
 # Install Rust (ditto)
 rustup default nightly
