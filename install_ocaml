@@ -5,4 +5,4 @@ opam init -y
 opam switch create 5.2.0 --repos upstream=git+https://github.com/janestreet/opam-repository.git,default
 eval $(opam env --switch 5.2.0)
 opam update -y
-opam install -y dune core async hardcaml hardcaml_waveterm hardcaml_test_harness hardcaml_axi ppx_hardcaml ppx_deriving hardcaml_xilinx_reports
+opam install -y dune core async hardcaml hardcaml_waveterm hardcaml_test_harness hardcaml_axi ppx_hardcaml ppx_deriving hardcaml_xilinx hardcaml_xilinx_reports 
