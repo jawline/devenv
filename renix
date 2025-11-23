@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-set -euvx
-sudo cp boot.nix /etc/nixos/boot.nix
-sudo cp configuration.nix /etc/nixos/configuration.nix
-sudo cp home.nix /etc/nixos/home.nix
-sudo rm -rf /etc/nixos/etc/
-sudo cp -r ./etc /etc/nixos/etc
-sudo nixos-rebuild --show-trace --verbose switch

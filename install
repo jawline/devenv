@@ -5,7 +5,4 @@ cp ./etc/tmux.conf ~/.tmux.conf
 cp ./etc/zshrc ~/.zshrc
 
 ./install_ocaml
-
-# Install Rust (ditto)
-rustup default nightly
-rustup update
+./install_rust
