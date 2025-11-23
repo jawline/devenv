@@ -1,3 +1,7 @@
+# Editor
+EDITOR=vim
+VISUAL=vim
+
 # Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -26,10 +30,6 @@ HISTSIZE=30000
 SAVEHIST=30000
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-
-open() {
-  xdg-open $1 &> /dev/null &
-}
 
 export PATH=$PATH:~/.bin/
 
